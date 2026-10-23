@@ -115,20 +115,19 @@ section{padding:42px 0}h2{font-size:28px;margin-bottom:10px}.lead{font-size:16px
 <div class="w"><div class="cta rv"><span class="eye">Join the smart agriculture shift</span><h2>Identify tomato leaf diseases with AI</h2><p>Our deep learning model is trained and evaluated on a real tomato leaf dataset to ensure reliable results.</p><a class="btn" data-go="detect">Start Detection</a></div></div>
 
 <footer><div class="w"><div class="fg2"><div><h3>TOMATO AI</h3><p>Smart Agriculture, Machine Learning</p></div>
-<div><h3>Quick Links</h3><a data-go="home">Home</a><a data-go="about">About Project</a><a href="#results" id="ar">Analytics &amp; Results</a><a data-go="method">Methodology</a><a data-go="diseases">Tomato Diseases</a></div>
+<div><h3>Quick Links</h3><a data-go="home">Home</a><a data-go="about">About Project</a><a data-go="method">Analytics &amp; Results</a><a data-go="method">Methodology</a><a data-go="diseases">Tomato Diseases</a></div>
 <div><h3>Contact</h3><p>Daffodil International University</p><p>Email: info@tomato-ai.com</p></div></div>
 <div class="cp">&copy; Tomato AI &middot; Tomato Leaf Disease Classification Using Machine Learning</div></div></footer>
 
 <script>
 // ---- EDIT HERE: site links and result numbers ----
-var SITE="https://sites.google.com/view/tomato-leaf-detector";
-var PAGES={home:"",diseases:"/disease",detect:"/disease-detection",method:"/methodology",about:"/about-project"};
+var SITE="https://sites.google.com/view/tomatoleafdisease";var PAGES={home:"",diseases:"/tomato-diseases",detect:"/disease-detection",method:"/methodology",about:"/about-project"};
 var METRICS=[["Accuracy",92.4],["Precision",90.1],["Recall",88.7],["F1-Score",89.3]];
 var EPOCHS=[0,5,10,15,20,25,30,35,40,45,50];
 var ACC=[.04,.17,.27,.36,.43,.51,.58,.66,.75,.83,.90];
 var LOSS=[1,.86,.75,.64,.52,.45,.39,.32,.25,.17,.07];
 // --------------------------------------------------
-document.querySelectorAll("[data-go]").forEach(function(a){a.href=SITE+PAGES[a.dataset.go];a.target="_top"});
+document.querySelectorAll("[data-go]").forEach(function(a){var u=SITE+PAGES[a.dataset.go];a.href=u;a.addEventListener("click",function(e){e.preventDefault();try{window.top.location.href=u}catch(x){}setTimeout(function(){window.open(u,"_blank")},700)})});
 var gg=document.getElementById("gg");
 METRICS.forEach(function(m){gg.insertAdjacentHTML("beforeend",'<div class="gau rv"><svg viewBox="0 0 120 120"><circle class="tr" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52" data-v="'+m[1]+'"/></svg><div class="v">'+m[1]+'%</div><div class="l">'+m[0]+'</div></div>')});
 (function(){var X=function(i){return 56+i*(524/50)},Y=function(v){return 250-v*226},s='<svg viewBox="0 0 600 300" role="img" aria-label="Training accuracy and loss over 50 epochs">';
@@ -140,5 +139,4 @@ document.getElementById("ch").innerHTML=s})();
 var els=document.querySelectorAll(".rv");
 function show(e){e.classList.add("in");e.querySelectorAll(".fg").forEach(function(c){c.style.strokeDashoffset=327*(1-c.dataset.v/100)});if(e.classList.contains("gau")){var c=e.querySelector(".fg");c.style.strokeDashoffset=327*(1-c.dataset.v/100)}}
 if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){show(x.target);io.unobserve(x.target)}})},{threshold:.15});document.querySelectorAll(".rv").forEach(function(e){io.observe(e)})}else{els.forEach(show)}
-document.getElementById("ar").addEventListener("click",function(e){e.preventDefault();document.getElementById("results").scrollIntoView({behavior:"smooth"})});
 </script><script>(function(){if(location.search.indexOf("h=1")<0)return;var b=document.createElement("div");b.style.cssText="position:fixed;top:8px;right:8px;z-index:99;background:#000;color:#fff;padding:8px 12px;border-radius:8px;font:700 14px system-ui";document.body.appendChild(b);function u(){b.textContent="width "+innerWidth+" | height "+document.body.offsetHeight}u();addEventListener("resize",u);if(document.fonts)document.fonts.ready.then(u);setInterval(u,1500)})();</script></body></html>
